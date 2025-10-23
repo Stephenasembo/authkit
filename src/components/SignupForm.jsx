@@ -1,12 +1,11 @@
 import { useState } from "react"
 import { useFormik } from "formik"
-import { UserIcon } from "./svgs"
-import { EmailIcon } from "./svgs"
-import { EyeIcon } from "./svgs"
+import { UserIcon, EmailIcon, EyeIcon } from "./svgs"
+import * as Yup from "yup"
 
 export default function SignUpForm() {
   const [passwordVisible, setPasswordVisible] = useState(false);
-  
+
   const formik = useFormik({
     initialValues: {
       username: '',
@@ -14,8 +13,22 @@ export default function SignUpForm() {
       password: '',
     },
     onSubmit: values => {
-      alert(JSON.stringify(values))
+      alert(JSON.stringify(values, null, 2))
     },
+    validationSchema: Yup.object({
+      username: Yup.string()
+        .trim()
+        .min(3, "Username must be at least 3 characters")
+        .required("Username is required"),
+      email: Yup.string()
+        .trim()
+        .email("Invalid email address")
+        .required("Email is required"),
+      password: Yup.string()
+        .trim()
+        .min(6, "Password must be at least 6 characters")
+        .required("Password is required"),
+    })
   })
 
   function viewPassword(e) {
@@ -30,8 +43,8 @@ export default function SignUpForm() {
       <div>
         <label htmlFor="username">Username:*</label>
         <span
-        className="input-container"
-        >
+          className={`input-container ${formik.touched.username && formik.errors.username ? "error" : ""}`}
+          >
           <UserIcon />
           <input
           className="input"
@@ -41,46 +54,58 @@ export default function SignUpForm() {
           onChange={formik.handleChange}
           value={formik.values.username}
           placeholder="Enter your username"
+          onBlur={formik.handleBlur}
           />
         </span>
+        {formik.touched.username && formik.errors.username ? (
+          <p className="text-red-500 text-sm mt-1">{formik.errors.username}</p>
+        ) : null}
       </div>
 
       <div>
         <label htmlFor="email">Email:*</label>
         <span
-        className="input-container"
+        className={`input-container ${formik.touched.email && formik.errors.email ? "error" : ""}`}
         >
           <EmailIcon />
           <input
-          className="input"
+          className={`input ${formik.touched.email && formik.errors.email ? "border-red-500" : ""}`}
           id="email"
           name="email"
           type="email"
           onChange={formik.handleChange}
           value={formik.values.email}
           placeholder="you@example.com"
+          onBlur={formik.handleBlur}
           />
         </span>
+        {formik.touched.email && formik.errors.email ? (
+          <p className="text-red-500 text-sm mt-1">{formik.errors.email}</p>
+        ) : null}
       </div>
 
       <div>
         <label htmlFor="password">Password:*</label>
         <span
-        className="input-container"
+        className={`input-container ${formik.touched.password && formik.errors.password ? "error" : ""}`}
         >
           <input
-          className="input"
+          className={`input ${formik.touched.password && formik.errors.password ? "border-red-500" : ""}`}
           id="password"
           name="password"
           type={passwordVisible? "text" : "password"}
           onChange={formik.handleChange}
           value={formik.values.password}
           placeholder="Enter your password"
+          onBlur={formik.handleBlur}
           />
           <EyeIcon
           onClick={viewPassword}
           />
         </span>
+        {formik.touched.password && formik.errors.password ? (
+          <p className="text-red-500 text-sm mt-1">{formik.errors.password}</p>
+        ) : null}
       </div>
 
       <button

@@ -12,6 +12,10 @@
       transition-all duration-150; 
   }
 
+  .input-container.error {
+    @apply border-red-500 ring-0;
+  }
+
   label {
     @apply block text-sm font-medium text-neutral-800 dark:text-[#e3e3e3] mb-1;
   }
