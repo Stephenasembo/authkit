@@ -8,8 +8,9 @@ export default function AuthContainer() {
 
   return(
     <div
-    className="border w-full max-w-xs mx-auto p-6 bg-white font-roboto rounded-xl shadow-md flex flex-col gap-5
+    className="border w-full max-w-xs mx-auto p-6 bg-white rounded-xl shadow-md flex flex-col gap-5
     border-[#dadce0] dark:bg-[#1a1a1a] text-[#1f1f1f] dark:text-[#e3e3e3]
+    md:max-w-lg lg:max-w-xl md:p-10 transition-all duration-218
     "
     >
       <h1

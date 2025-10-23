@@ -87,7 +87,8 @@ export default function LoginForm() {
       font-roboto text-[#1f1f1f] bg-neutral-300 font-medium hover:bg-[#303030]/8
       transition-all duration-200 border-[#747775]
       hover:shadow-[0_1px_2px_0_rgba(60,64,67,0.3),0_1px_3px_1px_rgba(60,64,67,0.15)]
-      dark:border-[#747775] dark:bg-neutral-800 dark:text-[#e3e3e3] dark:hover:bg-[#2a2a2a]"
+      dark:border-[#747775] dark:bg-neutral-800 dark:text-[#e3e3e3] dark:hover:bg-[#2a2a2a]
+      md:w-[80%] lg:w-[70%] xl:w-[60%] mx-auto"
       type="submit"
     >Submit</button>
     </form>
