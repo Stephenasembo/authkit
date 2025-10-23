@@ -1,1 +1,22 @@
-@import "tailwindcss"
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@layer components{
+  .input {
+    @apply w-full bg-transparent outline-none text-[#1f1f1f] dark:text-[#e3e3e3] placeholder:text-neutral-500 px-1 h-10;
+  }
+
+  .input-container {
+    @apply flex items-center gap-2 border border-[#747775] rounded-lg px-3 py-2 bg-white dark:bg-[#131314]
+      dark:border-[#747775] focus-within:border-neutral-600 focus-within:ring-1 focus-within:ring-neutral-600
+      transition-all duration-150; 
+  }
+
+  label {
+    @apply block text-sm font-medium text-neutral-800 dark:text-[#e3e3e3] mb-1;
+  }
+}
+
+@theme {
+  --font-roboto: "Roboto", sans-serif;
+}
