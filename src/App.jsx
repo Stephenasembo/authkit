@@ -1,8 +1,12 @@
+import AuthContainer from "./components/AuthContainer"
+
 function App() {
   return (
-    <>
-      <h1 className="text-3xl">Hello world</h1>
-    </>
+    <div
+    className="min-h-screen flex items-center justify-center bg-[#f8f9fa] dark:bg-[#0e0e0e]"
+    >
+      <AuthContainer />
+    </div>
   )
 }
 
