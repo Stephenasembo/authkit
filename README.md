@@ -7,7 +7,13 @@ Designed for flexibility and ease of integration into any frontend or full-stack
 
 ---
 ## Screenshots
+| Sign Up (Light) | Sign Up (Error State) |
+|:----------------:|:----------------------:|
+| ![Sign Up Light](./screenshots/Sign-up-light.png) | ![Sign Up Error](./screenshots/Light-error.png) |
 
+| Login (Dark) | Mobile (Light) |
+|:-------------:|:----------------:|
+| ![Login Dark](./screenshots/Login-dark.png) | ![Mobile Light](./screenshots/Mobile-light.jpg) |
 ---
 
 ## ✨ Features
