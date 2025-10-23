@@ -1,6 +1,6 @@
 import { GoogleIcon } from "./svgs";
 
-export default function GoogleButton() {
+export default function GoogleButton({text}) {
   return(
     <button
     className="w-full border rounded-sm h-12 pr-3 flex cursor-pointer items-center font-roboto text-center bg-white
@@ -17,7 +17,7 @@ export default function GoogleButton() {
       </span>
       <span
       className="justify-self-start"
-      >Sign in with Google</span>
+      >{text}</span>
     </button>
   )
 }

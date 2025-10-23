@@ -15,8 +15,10 @@ export default function AuthContainer() {
     >
       <h1
       className="text-center text-2xl font-semibold"
-      >Sign Up</h1>
-      <GoogleButton />
+      >App name</h1>
+      <GoogleButton
+      text={isLogin? "Sign in with Google" : "Sign up with Google"}
+      />
       <div className="flex items-center gap-2">
         <div className="h-px flex-1 bg-[#dadce0] dark:bg-[#3c4043]" />
         <span className="text-sm text-[#5f6368] dark:text-[#9aa0a6]">or</span>
