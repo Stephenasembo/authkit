@@ -1,9 +1,12 @@
+import { useState } from "react"
 import { useFormik } from "formik"
 import { UserIcon } from "./svgs"
 import { EmailIcon } from "./svgs"
 import { EyeIcon } from "./svgs"
 
 export default function SignUpForm() {
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  
   const formik = useFormik({
     initialValues: {
       username: '',
@@ -12,9 +15,14 @@ export default function SignUpForm() {
     },
     onSubmit: values => {
       alert(JSON.stringify(values))
-    }
+    },
   })
 
+  function viewPassword(e) {
+    e.preventDefault()
+    setPasswordVisible(!passwordVisible)
+  }
+  
   return (
     <form
     className="flex flex-col gap-4 mt-2"
@@ -64,12 +72,14 @@ export default function SignUpForm() {
           className="input"
           id="password"
           name="password"
-          type="password"
+          type={passwordVisible? "text" : "password"}
           onChange={formik.handleChange}
           value={formik.values.password}
           placeholder="Enter your password"
           />
-          <EyeIcon />
+          <EyeIcon
+          onClick={viewPassword}
+          />
         </span>
       </div>
 
